@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo da velha</title>
-    <link rel="stylesheet" href="style.css">
-   
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo da Velha</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Jogo da velha</h1>
-    <div class="tabuleiro" id="tabuleiro">
+
+  <h1 id="game">Jogo da Velha</h1>
+
+  <!-- Container com imagem e tabuleiro lado a lado -->
+  <div class="principal">
+
+    <!-- Imagem da velha igmh na esquerda -->
+    <img src="https://img.freepik.com/fotos-premium/mulher-velha-de-corpo-cheio_917213-23557.jpg" 
+         alt="Imagem engraçada" class="imagem-velha">
+
+    <!-- Tabuleiro + mensagem + botão -->
+    <div class="lado-direito">
+      <div class="tabuleiro" id="tabuleiro">
+        <!-- Células do jogo -->
         <div class="celula" data-index="0"></div>
         <div class="celula" data-index="1"></div>
         <div class="celula" data-index="2"></div>
@@ -19,10 +30,16 @@
         <div class="celula" data-index="6"></div>
         <div class="celula" data-index="7"></div>
         <div class="celula" data-index="8"></div>
+      </div>
+
+      <!-- Mensagem de status -->
+      <p id="mensagem"></p>
+
+      <!-- Botão de reiniciar -->
+      <button onclick="reiniciar()">Reiniciar</button>
     </div>
-    <p id="mensagem"></p>
-    <button onclick="reiniciar()">reiniciar</button>
-     <script src="script.js" defer></script> <!--Caminho para ligar o js ao html-->
-    
+  </div>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
