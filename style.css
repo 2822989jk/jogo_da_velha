@@ -1,36 +1,120 @@
+/* Estilização geral do corpo da página */
 body {
   font-family: Arial, sans-serif;
-  text-align: center;
-  margin-top: 30px;
-  background-color: rgb(178, 211, 211);
-  color: #0a0a0a;
-
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
 }
 
+/* Título centralizado */
+#game {
+  text-align: center;
+  color: #4a148c;
+  margin-top: 30px;
+}
+
+/* Container principal que segura a imagem e o jogo */
+.principal {
+  display: flex; /* Layout lado a lado */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: flex-start; /* Alinha ao topo */
+  gap: 40px; /* Espaço entre imagem e jogo */
+  margin: 40px auto; /* Margem externa */
+  flex-wrap: wrap; /* Quebra para vertical em telas pequenas */
+  padding: 0 20px; /* Espaçamento interno lateral */
+}
+
+/* Imagem da velha com fundo branco e sombra */
+.imagem-velha {
+  max-width: 330px;
+  border-radius: 10px; /* Bordas arredondadas */
+  background-color: #fff;
+  padding: 3px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2); /* Sombra leve */
+}
+
+/* Área onde fica o tabuleiro e botão */
+.lado-direito {
+  display: flex;
+  flex-direction: column; /* Elementos em coluna */
+  align-items: center; /* Centraliza os itens */
+}
+
+/* Tabuleiro com 3 colunas de 100px */
 .tabuleiro {
   display: grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-gap: 5px;
-  justify-content: center;
-  margin: 20px auto;
+  grid-template-columns: repeat(3, 100px); /* 3 colunas iguais */
+  gap: 10px; /* Espaço entre células */
+  margin-bottom: 20px;
 }
 
+/* Cada célula do jogo */
 .celula {
   width: 100px;
   height: 100px;
-  background-color: #eee;
-  font-size: 48px;
+  background-color: #fff;
+  border: 2px solid #4a148c;
+  font-size: 48px; /* Tamanho do X/O */
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
   cursor: pointer;
+  transition: background 0.2s;
 }
 
+/* Efeito ao passar o mouse sobre a célula */
 .celula:hover {
-  background-color: #ddd;
+  background-color: #f3e5f5;
 }
 
+/* Quando uma célula faz parte da combinação vencedora */
+.vencedor {
+  background-color: #c8e6c9 !important; /* Verde claro */
+  font-weight: bold;
+}
+
+/* Mensagem que exibe o resultado do jogo */
 #mensagem {
-  font-size: 18px;
-  margin-top: 10px;
+  font-size: 20px;
+  color: #4a148c;
+  margin: 10px 0;
+}
+
+/* Botão de reinício */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #7b1fa2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Efeito ao passar o mouse no botão */
+button:hover {
+  background-color: #6a1b9a;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 600px) {
+  .tabuleiro {
+    grid-template-columns: repeat(3, 80px); /* Reduz tamanho das colunas */
+  }
+
+  .celula {
+    width: 80px;
+    height: 80px;
+    font-size: 36px; /* Tamanho do texto menor */
+  }
+
+  .imagem-velha {
+    max-width: 100%;
+  }
+
+  .principal {
+    flex-direction: column; /* Empilha imagem e jogo */
+    align-items: center;
+  }
 }
